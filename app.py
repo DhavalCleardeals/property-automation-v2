@@ -4,7 +4,7 @@ import google.generativeai as genai
 
 # --- CONFIGURATION ---
 # Yahan apni AQ... wali key paste karein
-API_KEY = AQ.Ab8RN6Il8h3nnt3zhtObEL-XIun-Tm9m-zAuGXRwTDWZEC3Yiw 
+API_KEY = "AQ.Ab8RN6Il8h3nnt3zhtObEL-XIun-Tm9m-zAuGXRwTDWZEC3Yiw"
 genai.configure(api_key=API_KEY)
 
 st.set_page_config(page_title="Cleardeals Automation", layout="wide")

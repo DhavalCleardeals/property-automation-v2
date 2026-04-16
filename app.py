@@ -3,11 +3,11 @@ import pandas as pd
 import google.generativeai as genai
 
 # --- CONFIGURATION ---
-# Yahan apni AQ wali key dhyan se paste karein
-API_KEY = "AQ.Ab8RN6Il8h3nnt3zhtObEL-XIun-Tm9m-zAuGXRwTDWZEC3Yiw" 
+# Yahan apni NAYI key dhyan se paste karein
+API_KEY = "YAHAN_NAYI_KEY_PASTE_KAREIN" 
 
-# AI Setup
-genai.configure(api_key=API_KEY)
+if API_KEY != "YAHAN_NAYI_KEY_PASTE_KAREIN":
+    genai.configure(api_key=API_KEY)
 
 st.set_page_config(page_title="Cleardeals Automation", layout="wide")
 st.title("🏠 Cleardeals Property Data Extractor")
@@ -17,6 +17,8 @@ raw_text = st.text_area("Paste WhatsApp Messages here:", height=300)
 if st.button("Generate CSV"):
     if not raw_text:
         st.warning("Pehle data paste karein!")
+    elif API_KEY == "YAHAN_NAYI_KEY_PASTE_KAREIN":
+        st.error("API Key missing hai! Code mein apni key dalein.")
     else:
         with st.spinner("AI processing kar raha hai..."):
             try:
@@ -29,4 +31,4 @@ if st.button("Generate CSV"):
                 st.success("Data ready hai!")
                 st.download_button(label="📥 Download CSV File", data=csv_data, file_name="properties.csv", mime="text/csv")
             except Exception as e:
-                st.error(f"Error: {e}")
+                st.error(f"Error detail: {e}")
